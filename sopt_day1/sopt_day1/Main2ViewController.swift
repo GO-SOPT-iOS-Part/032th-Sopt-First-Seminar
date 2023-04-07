@@ -1,7 +1,6 @@
 import UIKit
-
+//클래스서 키트 사용하고
 final class SecondViewController_1st_Seminar: UIViewController {
-    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "제 이름은요!"
@@ -19,6 +18,7 @@ final class SecondViewController_1st_Seminar: UIViewController {
     }()
     
     var name: String?
+    //생명주기 함수 + 디자인적요소
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -32,7 +32,7 @@ final class SecondViewController_1st_Seminar: UIViewController {
         }
 }
 
-private extension SecondViewController_1st_Seminar {
+private extension SecondViewController_1st_Seminar { //생명주기 내에 들어갈, 디자인적 코드
     
     func style() {
         
@@ -55,6 +55,7 @@ private extension SecondViewController_1st_Seminar {
                                      backButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
                                      backButton.heightAnchor.constraint(equalToConstant: 48)])
     }
+    //빽하는 기능 하나. objc
     
     @objc
     func backbuttonTapped() {

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//키트 변수들 총출동
 class MainViewController: UIViewController {
     
     private let nameLabel: UILabel = {
@@ -15,10 +15,19 @@ class MainViewController: UIViewController {
         label.font = .systemFont(ofSize: 16)
         label.textColor = .blue
         label.textAlignment = .center
+        label.layer.shadowOpacity = 0.8
+        label.layer.shadowRadius = 3
+        label.layer.shadowOffset = CGSize(width: 2, height: 2)
+        label.layer.shadowColor = UIColor.blue.cgColor
         return label
     }()
     
     
+    private let realUIImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "fun")
+        return imageView
+    }()
     
     private let nameTextField: UITextField = {
         let textField = UITextField()
@@ -26,6 +35,8 @@ class MainViewController: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.layer.borderColor = UIColor.gray.cgColor
         textField.layer.borderWidth = 1
+       
+          // 이니셜라이즈 , '.' 프로퍼티, 메서드
         return textField
     }()
     
@@ -34,11 +45,12 @@ class MainViewController: UIViewController {
         button.setTitle("present!", for: .normal)
         button.backgroundColor = .yellow
         button.setTitleColor(.blue, for: .normal)
-        
+        button.layer.cornerRadius = 20
         // 새롭게 추가 !!!!!!!!!!!!
         button.addTarget(self,
                          action: #selector(presentButtonTapped),
                          for: .touchUpInside)
+        
         return button
     }()
     
@@ -57,7 +69,7 @@ class MainViewController: UIViewController {
     
     
     override func viewDidLoad() { //생명주기함수
-        super.viewDidLoad()
+        super.viewDidLoad()//생명주기함수는 보통 앱의 디자인과 레이아웃 코드와 함께 따로 빼놓는구나.
         style()
         setLayout()
     }
@@ -65,7 +77,7 @@ class MainViewController: UIViewController {
     
 }
 
-private extension MainViewController {
+private extension MainViewController { //생명주기 내에 들어갈, 디자인적 코드
     func style() {
         view.backgroundColor = .white
     }
@@ -73,7 +85,7 @@ private extension MainViewController {
     func setLayout() {
         
         [nameLabel, nameTextField,
-         presentButton, pushButton].forEach {
+         presentButton, pushButton, realUIImage].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
@@ -96,9 +108,15 @@ private extension MainViewController {
                                      pushButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      pushButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
                                      pushButton.heightAnchor.constraint(equalToConstant: 48)])
+        NSLayoutConstraint.activate([
+            realUIImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            realUIImage.heightAnchor.constraint(equalToConstant: 200),
+            realUIImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            view.trailingAnchor.constraint(equalTo: realUIImage.trailingAnchor, constant: 50)
+        ])
     }
 }
-//코드를 정의만해놓았지, 셋레이아웃 내에서 사용을 안해서 cmd+R했을때 아무것도 안뜨는 것임
+//진짜 '호출 시 생길 반응' 같은 기능적인 함수 
 private extension MainViewController {
     func presentToSecondViewController() {
         
