@@ -35,8 +35,8 @@ class MainViewController: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.layer.borderColor = UIColor.gray.cgColor
         textField.layer.borderWidth = 1
-       
-          // 이니셜라이즈 , '.' 프로퍼티, 메서드
+        
+        // 이니셜라이즈 , '.' 프로퍼티, 메서드
         return textField
     }()
     
@@ -119,8 +119,9 @@ private extension MainViewController { //생명주기 내에 들어갈, 디자�
 //진짜 '호출 시 생길 반응' 같은 기능적인 함수 
 private extension MainViewController {
     func presentToSecondViewController() {
-        
+        guard let name = nameTextField.text else { return }
         let secondViewController = SecondViewController_1st_Seminar()
+        secondViewController.name = name
         secondViewController.modalPresentationStyle = .fullScreen
         present(secondViewController, animated: true)
     }
