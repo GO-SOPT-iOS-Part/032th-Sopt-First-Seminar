@@ -49,7 +49,7 @@ extension Press1ViewController{
     }
     @objc
     private func pushToPress2ViewController() {
-       // let press2ViewController = Press2ViewController()
-       // self.navigationController?.pushViewController(press2ViewController, animated: true)
+        let press2ViewController = Press2ViewController()
+        self.navigationController?.pushViewController(press2ViewController, animated: true)
     }
 }
