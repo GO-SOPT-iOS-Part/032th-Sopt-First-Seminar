@@ -20,8 +20,8 @@
 		1D126F2A29E1386A00837265 /* SecondViewController_Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D126F2929E1386A00837265 /* SecondViewController_Closure.swift */; };
 		1D126F2D29E1426900837265 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1D126F2C29E1426900837265 /* SnapKit */; };
 		1D126F3029E142B900837265 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1D126F2F29E142B900837265 /* Then */; };
-		1D126F3229E1476400837265 /* Press1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D126F3129E1476400837265 /* Press1ViewController.swift */; };
-		1D126F3429E1477300837265 /* Press2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D126F3329E1477300837265 /* Press2ViewController.swift */; };
+		1D126F3229E1476400837265 /* DelegateVC_First.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D126F3129E1476400837265 /* DelegateVC_First.swift */; };
+		1D126F3429E1477300837265 /* DelegateVC_Second.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D126F3329E1477300837265 /* DelegateVC_Second.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,8 @@
 		1D126F2529E1345200837265 /* SecondViewController_Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController_Delegate.swift; sourceTree = "<group>"; };
 		1D126F2729E1385B00837265 /* FirstViewController_Closure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController_Closure.swift; sourceTree = "<group>"; };
 		1D126F2929E1386A00837265 /* SecondViewController_Closure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController_Closure.swift; sourceTree = "<group>"; };
-		1D126F3129E1476400837265 /* Press1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Press1ViewController.swift; sourceTree = "<group>"; };
-		1D126F3329E1477300837265 /* Press2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Press2ViewController.swift; sourceTree = "<group>"; };
+		1D126F3129E1476400837265 /* DelegateVC_First.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateVC_First.swift; sourceTree = "<group>"; };
+		1D126F3329E1477300837265 /* DelegateVC_Second.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateVC_Second.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,8 @@
 				1D126F2529E1345200837265 /* SecondViewController_Delegate.swift */,
 				1D126F2729E1385B00837265 /* FirstViewController_Closure.swift */,
 				1D126F2929E1386A00837265 /* SecondViewController_Closure.swift */,
-				1D126F3129E1476400837265 /* Press1ViewController.swift */,
-				1D126F3329E1477300837265 /* Press2ViewController.swift */,
+				1D126F3129E1476400837265 /* DelegateVC_First.swift */,
+				1D126F3329E1477300837265 /* DelegateVC_Second.swift */,
 			);
 			path = sopt_day2;
 			sourceTree = "<group>";
@@ -183,11 +183,11 @@
 				1D126F2829E1385B00837265 /* FirstViewController_Closure.swift in Sources */,
 				1D126F2429E1340500837265 /* FirstViewController_DelegatePattern.swift in Sources */,
 				1D126F2229D80FA700837265 /* Main2ViewController.swift in Sources */,
-				1D126F3429E1477300837265 /* Press2ViewController.swift in Sources */,
+				1D126F3429E1477300837265 /* DelegateVC_Second.swift in Sources */,
 				1D126F0B29D7FC3D00837265 /* AppDelegate.swift in Sources */,
 				1D126F2A29E1386A00837265 /* SecondViewController_Closure.swift in Sources */,
 				1D126F0D29D7FC3D00837265 /* SceneDelegate.swift in Sources */,
-				1D126F3229E1476400837265 /* Press1ViewController.swift in Sources */,
+				1D126F3229E1476400837265 /* DelegateVC_First.swift in Sources */,
 				1D126F1F29D806FF00837265 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
