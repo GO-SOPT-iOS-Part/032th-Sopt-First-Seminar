@@ -30,7 +30,6 @@ final class TvingViewController: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.layer.borderColor = UIColor.gray.cgColor
         textField.layer.borderWidth = 1
-        textField.textColor = UIColor.colorFFFFFF
         return textField
     }()
     
@@ -39,64 +38,42 @@ final class TvingViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "비밀번호"                   // 비밀번호
         textField.clearButtonMode = .whileEditing
-        textField.isSecureTextEntry = true
         textField.layer.borderColor = UIColor.gray.cgColor
         textField.layer.borderWidth = 1
-        textField.textColor = UIColor.colorFFFFFF
         return textField
     }()
     
-    private let loginButton = UIButton().then {    // 로그인 btn
+    private lazy var loginButton = UIButton().then {    // 로그인 btn
         $0.setTitle("로그인하기", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .gray
     }
     
-    private let find_id_Button = UIButton().then {      //아이디찾기 btn
+    private lazy var find_id_Button = UIButton().then {      //아이디찾기 btn
         $0.setTitle("아이디 찾기", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .gray
     }
     
-    private let find_pw_Button = UIButton().then {      //비밀번호찾기 btn
+    private lazy var find_pw_Button = UIButton().then {      //비밀번호찾기 btn
         $0.setTitle("비밀번호 찾기", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .gray
     }
     
-    private let createAccountButton = UIButton().then {     //회원가입버튼
+    private lazy var makeID = UIButton().then{
+        $0.setTitle("TVING ID 회원가입하기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .gray
+    }
+    
+    private lazy var newAccountButton = UIButton().then{
         $0.setTitle("TVING ID 회원가입하기", for: .normal)
         $0.frame=CGRect(x:100, y:100, width:200, height:50)
-        $0.setTitleColor(UIColor.color9C9C9C, for: .normal)
+        //$0.font = UIButton.
+        //$0.addTarget(self(), action: Selector, for: .touchUpInside)
     }
     
-    private let passwordTextRemoveButton = UIButton().then {        // 글자 및 숫자 한 번에 지우기
-        $0.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
-        $0.tintColor = .color626262
-    }
-    
-    private let passwordTextSecureToggleButton = UIButton().then {      //비밀번호 가리기
-        $0.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-        $0.tintColor = .color626262
-    }
-    
-    private let separateView = UIView().then {
-        $0.backgroundColor = UIColor.color2E2E2E
-    }
-    
-    private let findStackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.alignment = .fill
-        $0.distribution = .fill
-        $0.spacing = 36
-    }
-    
-    private let accountStackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.alignment = .fill
-         $0.distribution = .fill
-         $0.spacing = 17
-     }
     
     // MARK: - App Life Cycle
     override func viewDidLoad() {
@@ -105,44 +82,6 @@ final class TvingViewController: UIViewController {
         setLayout()
         actions()
         style()
-        extensions()
-        //idTextField.delegate = self
-        //passwordTextField.delegate = self
-    }
-    private func extensions() {
-        createAccountButton.setUnderline()
-        idTextField.setPlaceholderColor(UIColor.color9C9C9C)
-        passwordTextField.setPlaceholderColor(UIColor.color9C9C9C)
-        passwordTextField.addLeftPadding(leftPadding: 22)
-        idTextField.addLeftPadding(leftPadding: 22)
-        passwordTextField.addRightPadding(rightPadding: 86)
-        idTextField.addRightPadding(rightPadding: 22)
-    }
-    private func actions(){
-        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-        passwordTextRemoveButton.addTarget(self, action: #selector(passwordTextRemoveButtonTapped), for: .touchUpInside)
-        passwordTextSecureToggleButton.addTarget(self, action: #selector(passwordTextSecureToggleButtonTapped), for: .touchUpInside)
-    }
-    @objc func loginButtonTapped(_ sender : UITextField) {
-        let TvingViewController = TvingViewController()
-        TvingViewController.modalTransitionStyle = .crossDissolve
-        TvingViewController.modalPresentationStyle = .fullScreen
-        present(TvingViewController, animated: true)
-    }
-    
-    @objc func passwordTextRemoveButtonTapped() {
-        passwordTextField.text = ""
-    }
-    @objc func passwordTextSecureToggleButtonTapped(_ sender : UIButton) {
-        sender.isSelected = !sender.isSelected
-        if sender.isSelected {
-            passwordTextSecureToggleButton.setImage(UIImage(systemName: "eye"), for: .normal)
-            passwordTextField.isSecureTextEntry = false
-        }
-        else {
-            passwordTextSecureToggleButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-            passwordTextField.isSecureTextEntry = true
-        }
     }
 }
 
@@ -155,7 +94,7 @@ extension TvingViewController {
     }
     
     func addComponent() {
-        [titleLabel,newAcountLabel,idTextField,passwordTextField,loginButton,find_id_Button,find_pw_Button,newAcountLabel,createAccountButton, passwordTextRemoveButton, passwordTextSecureToggleButton].forEach {
+        [titleLabel,newAcountLabel,idTextField,passwordTextField,loginButton,find_id_Button,find_pw_Button,newAcountLabel,newAccountButton].forEach {
             view.addSubview($0)
         }
     }
@@ -203,66 +142,28 @@ extension TvingViewController {
             make.top.equalTo(find_id_Button.snp.bottom).offset(10)
             make.centerX.equalTo(find_id_Button)
         }
-        createAccountButton.snp.makeConstraints{ make in
+        newAccountButton.snp.makeConstraints{ make in
             make.top.equalTo(find_pw_Button.snp.bottom).offset(10)
             make.centerX.equalTo(find_pw_Button)
         }
-        passwordTextRemoveButton.snp.makeConstraints{ make in
-            make.centerY.equalTo(passwordTextField)
-            make.trailing.equalTo(passwordTextField.snp.trailing).offset(-20)
-            make.width.equalTo(20)
-            make.height.equalTo(52)
-        }
-        passwordTextRemoveButton.snp.makeConstraints { make in
-            make.centerY.equalTo(passwordTextField)
-            make.trailing.equalTo(passwordTextSecureToggleButton.snp.leading).offset(-16)
-            make.width.equalTo(20)
-            make.height.equalTo(52)
-        }
-        passwordTextField.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(idTextField.snp.bottom).offset(7)
-            make.leading.equalToSuperview().offset(20)
-            make.height.equalTo(52)
-        }
-        
-        
-        
-        
-        //MARK: - EXTENSION
-        
-        func enabledLoginButton() {
-            loginButton.isEnabled = true
-            loginButton.backgroundColor = UIColor.colorFF143C
-            loginButton.layer.borderColor = UIColor.colorFF143C.cgColor
-            loginButton.setTitleColor(UIColor.colorFFFFFF, for: .normal)
-        }
-        func disenabledLoginButton() {
-            loginButton.isEnabled = false
-            loginButton.backgroundColor = UIColor.color000000
-            loginButton.layer.borderColor = UIColor.color2E2E2E.cgColor
-            loginButton.setTitleColor(UIColor.color9C9C9C, for: .normal)
-        }
-        ///이메일 정규식
-        func isValidEmail(email: String) -> Bool {
-            let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$"#
-            let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
-            return emailPredicate.evaluate(with: email)
-        }
-        ///비밀번호 정규식
-        func isValidPassword(password: String) -> Bool {
-            let passwordRegex = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{8,50}"
-            let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-            return passwordPredicate.evaluate(with: password)
-        }
     }
     
-    // MARK: 다른 창으로 넘어가기
-    
-    
-    
-    
-    
+    private func actions(){
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    @objc func loginButtonTapped(){
+        
+    }
+
+}
+
+
+
+
+
+
+
+
     // func 뭐 만들껀지 ->
     //    텍스트필드 터치 시 테두리 컬러 변경
     //
@@ -278,4 +179,3 @@ extension TvingViewController {
     //    - 닉네임 텍스트필드의 텍스트는 한글로 제한합니다!
     
     // 모달
-}
