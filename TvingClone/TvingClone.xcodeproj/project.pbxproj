@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D9DAB4129EFFF5D00F5BC67 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9DAB4029EFFF5C00F5BC67 /* UIColor.swift */; };
+		1D9DAB4329F002B700F5BC67 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9DAB4229F002B700F5BC67 /* UITextField.swift */; };
+		1D9DAB4529F0048800F5BC67 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9DAB4429F0048800F5BC67 /* UIButton.swift */; };
 		1DA6D14D29E9676A00489DEA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA6D14C29E9676A00489DEA /* SnapKit */; };
 		1DA6D15029E9678900489DEA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA6D14F29E9678900489DEA /* Then */; };
 		1DA6D15229E96A2F00489DEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFF4FF229E94C5F003F112F /* AppDelegate.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D9DAB4029EFFF5C00F5BC67 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1D9DAB4229F002B700F5BC67 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		1D9DAB4429F0048800F5BC67 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		1DA6D15529E9751100489DEA /* Tving2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tving2ViewController.swift; sourceTree = "<group>"; };
 		1DA6D15729EAA29100489DEA /* Tving3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tving3ViewController.swift; sourceTree = "<group>"; };
 		1DFF4FEF29E94C5F003F112F /* TvingClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvingClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +79,9 @@
 				1DFF4FFB29E94C61003F112F /* Assets.xcassets */,
 				1DFF4FFD29E94C61003F112F /* LaunchScreen.storyboard */,
 				1DFF500029E94C61003F112F /* Info.plist */,
+				1D9DAB4029EFFF5C00F5BC67 /* UIColor.swift */,
+				1D9DAB4229F002B700F5BC67 /* UITextField.swift */,
+				1D9DAB4429F0048800F5BC67 /* UIButton.swift */,
 			);
 			path = TvingClone;
 			sourceTree = "<group>";
@@ -157,6 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DA6D15429E96B0100489DEA /* TvingViewController.swift in Sources */,
+				1D9DAB4129EFFF5D00F5BC67 /* UIColor.swift in Sources */,
+				1D9DAB4329F002B700F5BC67 /* UITextField.swift in Sources */,
+				1D9DAB4529F0048800F5BC67 /* UIButton.swift in Sources */,
 				1DA6D15229E96A2F00489DEA /* AppDelegate.swift in Sources */,
 				1DA6D15629E9751100489DEA /* Tving2ViewController.swift in Sources */,
 				1DA6D15829EAA29100489DEA /* Tving3ViewController.swift in Sources */,
