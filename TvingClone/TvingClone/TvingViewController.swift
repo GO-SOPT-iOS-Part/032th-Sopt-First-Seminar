@@ -67,21 +67,34 @@ final class TvingViewController: UIViewController {
         $0.backgroundColor = .gray
     }
     
+    private lazy var newAccountButton = UIButton().then{
+        $0.setTitle("TVING ID 회원가입하기", for: .normal)
+        $0.frame=CGRect(x:100, y:100, width:200, height:50)
+        //$0.font = UIButton.
+        //$0.addTarget(self(), action: Selector, for: .touchUpInside)
+    }
+    
     
     // MARK: - App Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addComponent()
         setLayout()
+        actions()
+        style()
     }
 }
 
 // MARK: - Functions
-
+//extension 안에 에컴, 셋레이아웃, func, obj, obj
 extension TvingViewController {
     
+    func style(){
+        view.backgroundColor = UIColor.black
+    }
+    
     func addComponent() {
-        [titleLabel,newAcountLabel,idTextField,passwordTextField,loginButton,find_id_Button,find_pw_Button].forEach {
+        [titleLabel,newAcountLabel,idTextField,passwordTextField,loginButton,find_id_Button,find_pw_Button,newAcountLabel,newAccountButton].forEach {
             view.addSubview($0)
         }
     }
@@ -129,49 +142,40 @@ extension TvingViewController {
             make.top.equalTo(find_id_Button.snp.bottom).offset(10)
             make.centerX.equalTo(find_id_Button)
         }
-        
-        
-        
-        
+        newAccountButton.snp.makeConstraints{ make in
+            make.top.equalTo(find_pw_Button.snp.bottom).offset(10)
+            make.centerX.equalTo(find_pw_Button)
+        }
+    }
+    
+    private func actions(){
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    @objc func loginButtonTapped(){
         
     }
-//
-//
-//
-//
-//            countLabel.snp.makeConstraints { make in
-//                make.centerX.centerY.equalToSuperview()
-//            }
-//            pushButton.snp.makeConstraints { make in
-//                make.top.equalTo(countLabel.snp.bottom).offset(10)
-//                make.width.equalTo(100)
-//                make.height.equalTo(30)
-//                make.centerX.equalTo(countLabel)
-//            }
-//
-//            backButton.snp.makeConstraints { make in
-//                make.top.equalTo(pushButton.snp.bottom).offset(10)
-//                make.width.equalTo(100)
-//                make.height.equalTo(30)
-//                make.centerX.equalTo(countLabel)
-//            }
-//        }
-//
-//
-//        func setButtonEvent() {
-//            backButton.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
-//            pushButton.addTarget(self, action: #selector(tappedPlusButton), for: .touchUpInside)
-//        }
-//
-//        @objc
-//        func tappedBackButton() {
-//            delegate?.dataBind(count: count)
-//            self.dismiss(animated: true)
-//        }
-//
-//        @objc
-//        func tappedPlusButton() {
-//            count += 1
-//        }
+
 }
 
+
+
+
+
+
+
+
+    // func 뭐 만들껀지 ->
+    //    텍스트필드 터치 시 테두리 컬러 변경
+    //
+    //    글자 입력시 글자 x버튼 만들기
+    //
+    //    비밀번호 텍스트필드 → 눈동자 버튼 클릭 시 패스워드 security 해제
+    //
+    //    모달형식
+    //
+    //    세번째 뷰 아이디
+    //
+    //    - 데이터의 흐름이 BottomSheet → 로그인뷰 → 로그인 완료뷰 순으로 되어야겠죠?!
+    //    - 닉네임 텍스트필드의 텍스트는 한글로 제한합니다!
+    
+    // 모달

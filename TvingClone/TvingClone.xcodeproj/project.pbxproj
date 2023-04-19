@@ -13,6 +13,7 @@
 		1DA6D15329E96AF400489DEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFF4FF429E94C5F003F112F /* SceneDelegate.swift */; };
 		1DA6D15429E96B0100489DEA /* TvingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFF4FF629E94C5F003F112F /* TvingViewController.swift */; };
 		1DA6D15629E9751100489DEA /* Tving2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA6D15529E9751100489DEA /* Tving2ViewController.swift */; };
+		1DA6D15829EAA29100489DEA /* Tving3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA6D15729EAA29100489DEA /* Tving3ViewController.swift */; };
 		1DFF4FFA29E94C5F003F112F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DFF4FF829E94C5F003F112F /* Main.storyboard */; };
 		1DFF4FFC29E94C61003F112F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DFF4FFB29E94C61003F112F /* Assets.xcassets */; };
 		1DFF4FFF29E94C61003F112F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DFF4FFD29E94C61003F112F /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		1DA6D15529E9751100489DEA /* Tving2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tving2ViewController.swift; sourceTree = "<group>"; };
+		1DA6D15729EAA29100489DEA /* Tving3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tving3ViewController.swift; sourceTree = "<group>"; };
 		1DFF4FEF29E94C5F003F112F /* TvingClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvingClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DFF4FF229E94C5F003F112F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DFF4FF429E94C5F003F112F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				1DFF4FF429E94C5F003F112F /* SceneDelegate.swift */,
 				1DFF4FF629E94C5F003F112F /* TvingViewController.swift */,
 				1DA6D15529E9751100489DEA /* Tving2ViewController.swift */,
+				1DA6D15729EAA29100489DEA /* Tving3ViewController.swift */,
 				1DFF4FF829E94C5F003F112F /* Main.storyboard */,
 				1DFF4FFB29E94C61003F112F /* Assets.xcassets */,
 				1DFF4FFD29E94C61003F112F /* LaunchScreen.storyboard */,
@@ -156,6 +159,7 @@
 				1DA6D15429E96B0100489DEA /* TvingViewController.swift in Sources */,
 				1DA6D15229E96A2F00489DEA /* AppDelegate.swift in Sources */,
 				1DA6D15629E9751100489DEA /* Tving2ViewController.swift in Sources */,
+				1DA6D15829EAA29100489DEA /* Tving3ViewController.swift in Sources */,
 				1DA6D15329E96AF400489DEA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
