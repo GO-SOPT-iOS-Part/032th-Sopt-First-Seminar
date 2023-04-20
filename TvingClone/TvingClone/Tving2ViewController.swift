@@ -1,53 +1,59 @@
 import UIKit
 import SnapKit
- import Then
+import Then
 
- class Tving2ViewController : UIViewController {
-     var userInfoText = ""
-     // MARK: - PROPERTIES
-     private let tvingImageView = UIImageView().then {
-         $0.image = UIImage(named: "tvingImage")
-     }
-
-     private let greetingLabel = UILabel().then {
-         $0.numberOfLines = 2
-    //     $0.font = UIFont.pretendard(.bold, size: 23)
-         $0.textColor = UIColor.colorD6D6D6
-         $0.textAlignment = .center
+class Tving2ViewController : UIViewController {
+    var backgroundHiddenCompletionHandler : ((Bool) -> (Void))?
+    var nickNameCompletionHandler : ((String) -> (Void))?
+    
+    // MARK: - PROPERTIES
+    private let tvingImageView = UIImageView().then {
+        $0.image = UIImage(named: "tvingImage")
+    }
+    
+    private let greetingLabel = UILabel().then {
+        $0.numberOfLines = 2
+        //     $0.font = UIFont.pretendard(.bold, size: 23)
+        $0.textColor = UIColor.colorD6D6D6
+        $0.textAlignment = .center
     }
     
     private let backButton = UIButton().then {
         $0.setTitle("메인으로", for: .normal)
         $0.setTitleColor(UIColor.colorFFFFFF, for: .normal)
-    //    $0.titleLabel?.font = UIFont.pretendard(.semiBold, size: 14)
+        //    $0.titleLabel?.font = UIFont.pretendard(.semiBold, size: 14)
         $0.backgroundColor = UIColor.colorFF143C
     }
     
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-         style()
-         setLayout()
-         actions()
-         greetingLabel.text = "\(userInfoText) 님\n반가워요!"
-     }
-     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
-         ///텍스트가 정해지기 전 설정을 하면 작동하지 않음 -> 생명주기에 차이를 주기
-     //    greetingLabel.setLineSpacing(lineHeightMultiple: 1.33)
-         greetingLabel.textAlignment = .center
-     }
-
-
+        style()
+        setLayout()
+        actions()     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ///텍스트가 정해지기 전 설정을 하면 작동하지 않음 -> 생명주기에 차이를 주기
+        //    greetingLabel.setLineSpacing(lineHeightMultiple: 1.33)
+        greetingLabel.textAlignment = .center
+    }
+    
+    
     // MARK: - ACTIONS
     private func actions() {
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        closeBottomSheetButton.addTarget(self, action: #selector(closeBottomSheetButtonTapped), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
-    @objc func backButtonTapped() {
+    @objc func closeBottomSheetButtonTapped() {
         dismiss(animated: true)
+        backgroundHiddenCompletionHandler?(true)
     }
-}
-// MARK: - EXTENSIONs
+    @objc func saveButtonTapped() {
+        dismiss(animated: true)
+        backgroundHiddenCompletionHandler?(true)
+        nickNameCompletionHandler?(nickNameTextField.text ?? "")
+    }
+}// MARK: - EXTENSIONs
 extension Tving2ViewController {
     ///줄 간격 벌리기
     func spaceLines(label : UILabel, lineHeight : Double) {
