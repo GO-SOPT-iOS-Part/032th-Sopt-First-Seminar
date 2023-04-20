@@ -139,6 +139,18 @@ final class TvingViewController: UIViewController {
         TvingViewController.userInfoText = idTextField.text ?? ""
     }
     
+    @objc func createAccountButtonTapped() {
+           let tvingUserNameBottomSheetViewController = TvingUserNameBottomSheetViewController()
+           tvingUserNameBottomSheetViewController.modalTransitionStyle = .coverVertical
+           tvingUserNameBottomSheetViewController.modalPresentationStyle = .overFullScreen
+           backgroundView.isHidden = false
+           tvingUserNameBottomSheetViewController.backgroundHiddenCompletionHandler = { [weak self] value in
+               guard let self else { return }
+               self.backgroundView.isHidden = value
+           }
+           present(tvingUserNameBottomSheetViewController, animated: true)
+       }
+    
     @objc func passwordTextRemoveButtonTapped() {
         passwordTextField.text = ""
     }
@@ -161,10 +173,11 @@ extension TvingViewController {
     
     func style(){
         view.backgroundColor = UIColor.black
+        backgroundView.isHidden = true
     }
     
     func addComponent() {
-        [titleLabel,newAcountLabel,idTextField,passwordTextField,loginButton,find_id_Button,find_pw_Button,newAcountLabel,createAccountButton, passwordTextRemoveButton, passwordTextSecureToggleButton].forEach {
+        [titleLabel,newAcountLabel,idTextField,passwordTextField,loginButton,find_id_Button,find_pw_Button,newAcountLabel,createAccountButton, passwordTextRemoveButton, passwordTextSecureToggleButton, backgroundView].forEach {
             view.addSubview($0)
         }
     }
@@ -235,9 +248,9 @@ extension TvingViewController {
             make.height.equalTo(52)
         }
         
-        
-        
-        
+        backgroundView.snp.makeConstraints{
+            $0.top.bottom.leading.trailing.equalToSuperview()
+        }
         //MARK: - EXTENSION
         
         func enabledLoginButton() {
