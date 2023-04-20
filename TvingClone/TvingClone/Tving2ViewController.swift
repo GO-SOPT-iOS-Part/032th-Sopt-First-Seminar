@@ -5,7 +5,7 @@ import Then
 class Tving2ViewController : UIViewController {
     var backgroundHiddenCompletionHandler : ((Bool) -> (Void))?
     var nickNameCompletionHandler : ((String) -> (Void))?
-    
+    var userInfoText = ""
     // MARK: - PROPERTIES
     private let tvingImageView = UIImageView().then {
         $0.image = UIImage(named: "tvingImage")
