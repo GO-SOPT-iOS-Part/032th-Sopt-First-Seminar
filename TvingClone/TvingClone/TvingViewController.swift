@@ -53,12 +53,15 @@ final class TvingViewController: UIViewController {
         return textField
     }()
     
-    private let loginButton = UIButton().then {    // 로그인 btn
+    private let loginButton = UIButton().then {
         $0.setTitle("로그인하기", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = .gray
+        $0.setTitleColor(UIColor.color9C9C9C, for: .normal)
+       // $0.titleLabel?.font = UIFont.pretendard(.semiBold, size: 14)
+        $0.backgroundColor = .color000000
+        $0.layer.cornerRadius = 3
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.color2E2E2E.cgColor
     }
-    
     private let find_id_Button = UIButton().then {      //아이디찾기 btn
         $0.setTitle("아이디 찾기", for: .normal)
         $0.setTitleColor(.white, for: .normal)
@@ -101,9 +104,9 @@ final class TvingViewController: UIViewController {
     private let accountStackView = UIStackView().then {
         $0.axis = .horizontal
         $0.alignment = .fill
-         $0.distribution = .fill
-         $0.spacing = 17
-     }
+        $0.distribution = .fill
+        $0.spacing = 17
+    }
     
     // MARK: - App Life Cycle
     override func viewDidLoad() {
@@ -140,16 +143,16 @@ final class TvingViewController: UIViewController {
     }
     
     @objc func createAccountButtonTapped() {
-           let tvingUserNameBottomSheetViewController = TvingUserNameBottomSheetViewController()
-           tvingUserNameBottomSheetViewController.modalTransitionStyle = .coverVertical
-           tvingUserNameBottomSheetViewController.modalPresentationStyle = .overFullScreen
-           backgroundView.isHidden = false
-           tvingUserNameBottomSheetViewController.backgroundHiddenCompletionHandler = { [weak self] value in
-               guard let self else { return }
-               self.backgroundView.isHidden = value
-           }
-           present(tvingUserNameBottomSheetViewController, animated: true)
-       }
+        let tvingUserNameBottomSheetViewController = TvingUserNameBottomSheetViewController()
+        tvingUserNameBottomSheetViewController.modalTransitionStyle = .coverVertical
+        tvingUserNameBottomSheetViewController.modalPresentationStyle = .overFullScreen
+        backgroundView.isHidden = false
+        tvingUserNameBottomSheetViewController.backgroundHiddenCompletionHandler = { [weak self] value in
+            guard let self else { return }
+            self.backgroundView.isHidden = value
+        }
+        present(tvingUserNameBottomSheetViewController, animated: true)
+    }
     
     @objc func passwordTextRemoveButtonTapped() {
         passwordTextField.text = ""
@@ -183,121 +186,150 @@ extension TvingViewController {
     }
     
     func setLayout() {
-        
-        view.backgroundColor = .black
-        
-        titleLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(additionalSafeAreaInsets).inset(120)
+            [titleLabel, idTextField, passwordTextField, loginButton, findStackView, accountStackView, passwordTextRemoveButton, passwordTextSecureToggleButton, backgroundView].forEach {
+                view.addSubview($0)
+            }
+            [find_id_Button, separateView, find_pw_Button].forEach {
+                findStackView.addArrangedSubview($0)
+            }
+            [newAcountLabel, createAccountButton].forEach {
+                accountStackView.addArrangedSubview($0)
+            }
+            backgroundView.snp.makeConstraints {
+                $0.top.bottom.leading.trailing.equalToSuperview()
+            }
+            titleLabel.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+                $0.top.equalTo(view.safeAreaLayoutGuide).offset(50)
+            }
+            idTextField.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+                $0.top.equalTo(titleLabel.snp.bottom).offset(31)
+                $0.leading.equalToSuperview().offset(20)
+                $0.height.equalTo(52)
+            }
+            passwordTextField.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+                $0.top.equalTo(idTextField.snp.bottom).offset(7)
+                $0.leading.equalToSuperview().offset(20)
+                $0.height.equalTo(52)
+            }
+            loginButton.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+                $0.top.equalTo(passwordTextField.snp.bottom).offset(21)
+                $0.leading.equalToSuperview().offset(20)
+                $0.height.equalTo(52)
+            }
+            findStackView.snp.makeConstraints {
+                $0.top.equalTo(loginButton.snp.bottom).offset(31)
+                $0.centerX.equalToSuperview()
+            }
             
-        }
-        idTextField.snp.makeConstraints{ make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.width.equalTo(280)
-            make.height.equalTo(50)
-            make.centerX.equalTo(titleLabel)
-        }
-        passwordTextField.snp.makeConstraints{ make in
-            make.top.equalTo(idTextField.snp.bottom).offset(10)
-            make.width.equalTo(280)
-            make.height.equalTo(50)
-            make.centerX.equalTo(idTextField)
-        }
-        loginButton.snp.makeConstraints{ make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(10)
-            make.width.equalTo(140)
-            make.height.equalTo(50)
-            make.centerX.equalTo(passwordTextField)
-        }
-        find_id_Button.snp.makeConstraints{ make in
-            make.top.equalTo(loginButton.snp.bottom).offset(10)
-            make.width.equalTo(140)
-            make.height.equalTo(50)
-            make.leading.equalTo(30)
-        }
-        find_pw_Button.snp.makeConstraints{ make in
-            make.top.equalTo(loginButton.snp.bottom).offset(10)
-            make.width.equalTo(140)
-            make.height.equalTo(50)
-            make.trailing.equalTo(-30)
-        }
-        newAcountLabel.snp.makeConstraints { make in
-            make.top.equalTo(find_id_Button.snp.bottom).offset(10)
-            make.centerX.equalTo(find_id_Button)
-        }
-        createAccountButton.snp.makeConstraints{ make in
-            make.top.equalTo(find_pw_Button.snp.bottom).offset(10)
-            make.centerX.equalTo(find_pw_Button)
-        }
-        passwordTextRemoveButton.snp.makeConstraints{ make in
-            make.centerY.equalTo(passwordTextField)
-            make.trailing.equalTo(passwordTextField.snp.trailing).offset(-20)
-            make.width.equalTo(20)
-            make.height.equalTo(52)
-        }
-        passwordTextRemoveButton.snp.makeConstraints { make in
-            make.centerY.equalTo(passwordTextField)
-            make.trailing.equalTo(passwordTextSecureToggleButton.snp.leading).offset(-16)
-            make.width.equalTo(20)
-            make.height.equalTo(52)
-        }
-        passwordTextField.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(idTextField.snp.bottom).offset(7)
-            make.leading.equalToSuperview().offset(20)
-            make.height.equalTo(52)
-        }
-        
-        backgroundView.snp.makeConstraints{
-            $0.top.bottom.leading.trailing.equalToSuperview()
-        }
-        //MARK: - EXTENSION
-        
-        func enabledLoginButton() {
-            loginButton.isEnabled = true
-            loginButton.backgroundColor = UIColor.colorFF143C
-            loginButton.layer.borderColor = UIColor.colorFF143C.cgColor
-            loginButton.setTitleColor(UIColor.colorFFFFFF, for: .normal)
-        }
-        func disenabledLoginButton() {
-            loginButton.isEnabled = false
-            loginButton.backgroundColor = UIColor.color000000
-            loginButton.layer.borderColor = UIColor.color2E2E2E.cgColor
-            loginButton.setTitleColor(UIColor.color9C9C9C, for: .normal)
-        }
-        ///이메일 정규식
-        func isValidEmail(email: String) -> Bool {
-            let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$"#
-            let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
-            return emailPredicate.evaluate(with: email)
-        }
-        ///비밀번호 정규식
-        func isValidPassword(password: String) -> Bool {
-            let passwordRegex = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{8,50}"
-            let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-            return passwordPredicate.evaluate(with: password)
+            separateView.snp.makeConstraints {
+                $0.width.equalTo(1)
+                $0.height.equalTo(12)
+            }
+            accountStackView.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+                $0.top.equalTo(findStackView.snp.bottom).offset(28)
+            }
+            newAcountLabel.snp.makeConstraints {
+                $0.height.equalTo(22)
+            }
+            createAccountButton.snp.makeConstraints {
+                $0.width.equalTo(128)
+                $0.height.equalTo(22)
+            }
+            passwordTextSecureToggleButton.snp.makeConstraints {
+                $0.centerY.equalTo(passwordTextField)
+                $0.trailing.equalTo(passwordTextField.snp.trailing).offset(-20)
+                $0.width.equalTo(20)
+                $0.height.equalTo(52)
+            }
+            passwordTextRemoveButton.snp.makeConstraints {
+                $0.centerY.equalTo(passwordTextField)
+                $0.trailing.equalTo(passwordTextSecureToggleButton.snp.leading).offset(-16)
+                $0.width.equalTo(20)
+                $0.height.equalTo(52)
+            }
         }
     }
-    
-    // MARK: 다른 창으로 넘어가기
-    
-    
-    
-    
-    
-    // func 뭐 만들껀지 ->
-    //    텍스트필드 터치 시 테두리 컬러 변경
-    //
-    //    글자 입력시 글자 x버튼 만들기
-    //
-    //    비밀번호 텍스트필드 → 눈동자 버튼 클릭 시 패스워드 security 해제
-    //
-    //    모달형식
-    //
-    //    세번째 뷰 아이디
-    //
-    //    - 데이터의 흐름이 BottomSheet → 로그인뷰 → 로그인 완료뷰 순으로 되어야겠죠?!
-    //    - 닉네임 텍스트필드의 텍스트는 한글로 제한합니다!
-    
-    // 모달
+    //MARK: - EXTENSION
+private extension TvingViewController{
+    func enabledLoginButton() {
+        loginButton.isEnabled = true
+        loginButton.backgroundColor = UIColor.colorFF143C
+        loginButton.layer.borderColor = UIColor.colorFF143C.cgColor
+        loginButton.setTitleColor(UIColor.colorFFFFFF, for: .normal)
+    }
+    func disenabledLoginButton() {
+        loginButton.isEnabled = false
+        loginButton.backgroundColor = UIColor.color000000
+        loginButton.layer.borderColor = UIColor.color2E2E2E.cgColor
+        loginButton.setTitleColor(UIColor.color9C9C9C, for: .normal)
+    }
+    ///이메일 정규식
+    func isValidEmail(email: String) -> Bool {
+        let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$"#
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+    ///비밀번호 정규식
+    func isValidPassword(password: String) -> Bool {
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{8,50}"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
+    }
+}
+
+// MARK: 다른 창으로 넘어가기
+
+
+
+
+
+// func 뭐 만들껀지 ->
+//    텍스트필드 터치 시 테두리 컬러 변경
+//
+//    글자 입력시 글자 x버튼 만들기
+//
+//    비밀번호 텍스트필드 → 눈동자 버튼 클릭 시 패스워드 security 해제
+//
+//    모달형식
+//
+//    세번째 뷰 아이디
+//
+//    - 데이터의 흐름이 BottomSheet → 로그인뷰 → 로그인 완료뷰 순으로 되어야겠죠?!
+//    - 닉네임 텍스트필드의 텍스트는 한글로 제한합니다!
+
+// 모달
+
+
+extension TvingViewController : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = (textField.text ?? "") as NSString
+        let newText = currentText.replacingCharacters(in: range, with: string)
+        
+        if textField == idTextField {
+            let isValidEmail = isValidEmail(email: newText)
+            
+            if isValidEmail && isValidPassword(password: passwordTextField.text ?? "") {
+                enabledLoginButton()
+            }
+            else {
+                disenabledLoginButton()
+            }
+        }
+        else if textField == passwordTextField {
+            let isValidPassword = isValidPassword(password: newText)
+            
+            if isValidPassword && isValidEmail(email: idTextField.text ?? "") {
+                enabledLoginButton()
+            }
+            else {
+                disenabledLoginButton()
+            }
+        }
+        return true
+    }
 }
