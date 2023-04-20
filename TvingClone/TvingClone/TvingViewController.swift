@@ -12,6 +12,13 @@ import SnapKit
 
 final class TvingViewController: UIViewController {
     
+    var userInfoText = ""
+    
+    private let backgroundView = UIView().then{
+        $0.backgroundColor = UIColor.color000000
+        $0.layer.opacity = 0.5
+    }
+    
     private lazy var titleLabel = UILabel().then {         //Tving ID 로그인
         $0.text = "Tving ID 로그인"
         $0.textColor = .white
@@ -64,7 +71,7 @@ final class TvingViewController: UIViewController {
         $0.backgroundColor = .gray
     }
     
-    private let createAccountButton = UIButton().then {     //회원가입버튼
+    @objc private let createAccountButton = UIButton().then {     //회원가입버튼
         $0.setTitle("TVING ID 회원가입하기", for: .normal)
         $0.frame=CGRect(x:100, y:100, width:200, height:50)
         $0.setTitleColor(UIColor.color9C9C9C, for: .normal)
@@ -122,12 +129,14 @@ final class TvingViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         passwordTextRemoveButton.addTarget(self, action: #selector(passwordTextRemoveButtonTapped), for: .touchUpInside)
         passwordTextSecureToggleButton.addTarget(self, action: #selector(passwordTextSecureToggleButtonTapped), for: .touchUpInside)
+        createAccountButton.addTarget(self, action: #selector(getter: createAccountButton), for: .touchUpInside)
     }
     @objc func loginButtonTapped(_ sender : UITextField) {
         let TvingViewController = TvingViewController()
         TvingViewController.modalTransitionStyle = .crossDissolve
         TvingViewController.modalPresentationStyle = .fullScreen
         present(TvingViewController, animated: true)
+        TvingViewController.userInfoText = idTextField.text ?? ""
     }
     
     @objc func passwordTextRemoveButtonTapped() {
