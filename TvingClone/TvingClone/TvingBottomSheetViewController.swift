@@ -8,7 +8,7 @@ import UIKit
 
 class TvingUserNameBottomSheetViewController : UIViewController {
     var backgroundHiddenCompletionHandler : ((Bool) -> (Void))?
-    
+
     // MARK: - PROPERTIES
     private let bottomSheetView = UIView().then {
         $0.backgroundColor = UIColor.colorFFFFFF
@@ -21,18 +21,20 @@ class TvingUserNameBottomSheetViewController : UIViewController {
     private let inputUserNickNameLabel = UILabel().then {
         $0.text = "닉네임을 입력해주세요"
         $0.textColor = UIColor.color000000
-        //    $0.font = UIFont.pretendard(.medium, size: 23)
+        $0.font = .tvingBold(ofSize: 24)
+        $0.font = UIFont(name: "Arial", size: 10)
     }
     private let nickNameTextField = UITextField().then {
         $0.backgroundColor = UIColor.color9C9C9C
         $0.layer.cornerRadius = 3
     }
-    
+
     private let saveButton = UIButton().then {
         $0.layer.cornerRadius = 12
         $0.setTitle("저장하기", for: .normal)
         $0.backgroundColor = UIColor.colorFF143C
-        // $0.titleLabel?.font = UIFont.pretendard(.semiBold, size: 14)
+       //  $0.titleLabel?.font = UIFont.pretendard(.semiBold, size: 14)
+        $0.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 16)
     }
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -41,7 +43,7 @@ class TvingUserNameBottomSheetViewController : UIViewController {
         setLayout()
         actions()
     }
-    
+
     // MARK: - ACTIONS
     private func actions() {
         closeBottomSheetButton.addTarget(self, action: #selector(closeBottomSheetButtonTapped), for: .touchUpInside)
@@ -55,7 +57,7 @@ class TvingUserNameBottomSheetViewController : UIViewController {
 extension TvingUserNameBottomSheetViewController {
     func style() {
         view.backgroundColor = .clear
-        
+
     }
     func setLayout() {
         [bottomSheetView, closeBottomSheetButton, inputUserNickNameLabel, saveButton, separateView, nickNameTextField].forEach {

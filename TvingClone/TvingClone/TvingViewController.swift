@@ -11,7 +11,7 @@ import Then
 import SnapKit
 
 final class TvingViewController: UIViewController {
-    
+    var userName : String?
     var backgroundHiddenCompletionHandler : ((Bool) -> (Void))?
     var nickNameCompletionHandler : ((String) -> (Void))?
     
@@ -57,7 +57,8 @@ final class TvingViewController: UIViewController {
     private let loginButton = UIButton().then {
         $0.setTitle("로그인하기", for: .normal)
         $0.setTitleColor(UIColor.color9C9C9C, for: .normal)
-        // $0.titleLabel?.font = UIFont.pretendard(.semiBold, size: 14)
+        $0.titleLabel?.font = .tvingBold(ofSize: 24)
+        //$0.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 16)
         $0.backgroundColor = .color000000
         $0.layer.cornerRadius = 3
         $0.layer.borderWidth = 1
@@ -79,6 +80,7 @@ final class TvingViewController: UIViewController {
         $0.setTitle("TVING ID 회원가입하기", for: .normal)
         $0.frame=CGRect(x:100, y:100, width:200, height:50)
         $0.setTitleColor(UIColor.color9C9C9C, for: .normal)
+        $0.titleLabel?.font = .tvingBold(ofSize: 12)
     }
     
     private let passwordTextRemoveButton = UIButton().then {        // 글자 및 숫자 한 번에 지우기
@@ -117,9 +119,10 @@ final class TvingViewController: UIViewController {
         actions()
         style()
         extensions()
-        //idTextField.delegate = self
-        //passwordTextField.delegate = self
+        idTextField.delegate = self
+        passwordTextField.delegate = self
     }
+    // MARK: - EXTENSIONS1
     private func extensions() {
         createAccountButton.setUnderline()
         idTextField.setPlaceholderColor(UIColor.color9C9C9C)
@@ -135,7 +138,7 @@ final class TvingViewController: UIViewController {
         passwordTextSecureToggleButton.addTarget(self, action: #selector(passwordTextSecureToggleButtonTapped), for: .touchUpInside)
         createAccountButton.addTarget(self, action: #selector(getter: createAccountButton), for: .touchUpInside)
     }
-    @objc func loginButtonTapped(_ sender : UITextField) {
+    @objc func loginButtonTapped() {
         let tving2ViewController = Tving2ViewController()
         tving2ViewController.modalTransitionStyle = .crossDissolve
         tving2ViewController.modalPresentationStyle = .fullScreen
@@ -159,6 +162,10 @@ final class TvingViewController: UIViewController {
             guard let self else { return }
             self.backgroundView.isHidden = value
         }
+//        tvingUserNameBottomSheetViewController.nickNameCompletionHandler = { [weak self] value in
+//            guard let self else { return }
+//            self.userName = value
+//        }
         present(tvingUserNameBottomSheetViewController, animated: true)
     }
     
@@ -168,11 +175,11 @@ final class TvingViewController: UIViewController {
     @objc func passwordTextSecureToggleButtonTapped(_ sender : UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
-            passwordTextSecureToggleButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            passwordTextSecureToggleButton.setImage(UIImage(systemName: "icon_eye-slash@3x 2"), for: .normal)
             passwordTextField.isSecureTextEntry = false
         }
         else {
-            passwordTextSecureToggleButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            passwordTextSecureToggleButton.setImage(UIImage(systemName: "icon_x-circle@3x 2"), for: .normal)
             passwordTextField.isSecureTextEntry = true
         }
     }
@@ -262,12 +269,14 @@ extension TvingViewController {
         }
     }
 }
-//MARK: - EXTENSION
+//MARK: - EXTENSION2
 private extension TvingViewController{
     func enabledLoginButton() {
         loginButton.isEnabled = true
         loginButton.backgroundColor = UIColor.colorFF143C
         loginButton.layer.borderColor = UIColor.colorFF143C.cgColor
+ //       loginButton.backgroundColor = UIColor.red
+        loginButton.layer.borderColor = UIColor.red.cgColor
         loginButton.setTitleColor(UIColor.colorFFFFFF, for: .normal)
     }
     func disenabledLoginButton() {
@@ -290,33 +299,24 @@ private extension TvingViewController{
     }
 }
 
-// MARK: 다른 창으로 넘어가기
-
-
-
-
-
-// func 뭐 만들껀지 ->
-//    텍스트필드 터치 시 테두리 컬러 변경
-//
-//    글자 입력시 글자 x버튼 만들기
-//
-//    비밀번호 텍스트필드 → 눈동자 버튼 클릭 시 패스워드 security 해제
-//
-//    모달형식
-//
-//    세번째 뷰 아이디
-//
-//    - 데이터의 흐름이 BottomSheet → 로그인뷰 → 로그인 완료뷰 순으로 되어야겠죠?!
-//    - 닉네임 텍스트필드의 텍스트는 한글로 제한합니다!
-
-// 모달
-
-
+// MARK: 순방향으로~! w.Delegate Pattern
 extension TvingViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = (textField.text ?? "") as NSString
         let newText = currentText.replacingCharacters(in: range, with: string)
+        
+        func textFieldDidBeginEditing(_ textField: UITextField) {
+                
+                guard let id = idTextField.text else { return }
+                guard let password = passwordTextField.text else { return }
+                
+                
+                if id.isEmpty && password.isEmpty {
+                    print("unable")
+                } else {
+                    print("enable")
+                }
+            }
         
         if textField == idTextField {
             let isValidEmail = isValidEmail(email: newText)
