@@ -7,23 +7,21 @@
 
 import UIKit
 
-class UIFont: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+extension UIFont {
+    
+    class func tvingSemiBold(ofSize size: CGFloat) -> UIFont{
+        return UIFont(name: "Pretendard-SemiBold", size: size)!
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    class func tvingBold(ofSize size: CGFloat) -> UIFont{
+        return UIFont(name: "Pretendard-Bold", size: size)!
     }
-    */
-
+    
+    class func tvingMedium(ofSize size: CGFloat) -> UIFont{
+        return UIFont(name: "Pretendard-Medium", size: size)!
+    }
+    
+    class func tvingRegular(ofSize size: CGFloat) -> UIFont{
+        return UIFont(name: "Pretendard-Regular", size: size)!
+    }
 }
