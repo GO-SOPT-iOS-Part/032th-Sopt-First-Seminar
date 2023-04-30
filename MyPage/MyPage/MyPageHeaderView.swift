@@ -94,4 +94,5 @@ class MyPageHeaderView: UIView {
         //            $0.centerY.equalToSuperview()
         //            $0.leading.equalToSuperview().inset(10)
         //        }
+    
     }
