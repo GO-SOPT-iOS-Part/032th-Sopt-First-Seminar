@@ -12,7 +12,10 @@ import SnapKit
 class MyPageViewController : BaseViewController{
     
     
-    private let myArray = ["0-Data", "1-Data", "2-Data", "3-Data"]
+    private let myArray = [
+        TextLiteral.tableViewFirstSectionTextArray,
+        TextLiteral.tableViewSecoondSectionTextArray,
+    ]
     
     private let tableView = UITableView()
     //private let dummy = MyPage.dummy()
@@ -60,9 +63,28 @@ class MyPageViewController : BaseViewController{
 extension MyPageViewController: UITableViewDelegate {}
 
 extension MyPageViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return myArray.count
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        return myArray[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            let view = UIView()
+            view.backgroundColor = .white
+            view.frame = .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 2)
+            return view
+        } else {
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,8 +95,8 @@ extension MyPageViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyPageTableViewCell.identifier, for: indexPath) as! MyPageTableViewCell
         print("이건 섹션 \(indexPath.section)")
         print("이건 로우 \(indexPath.row)")
-        cell.configureCell(TextLiteral.tableViewFirstSectionTextArray[indexPath.row])
-        cell.configureCell(TextLiteral.tableViewSecoondSectionTextArray[indexPath.row])
+        cell.configureCell(myArray[indexPath.section][indexPath.row])
+        
         
         
         //cell.configureCell(tableViewFirstSectionTextArray[indexPath.row])
