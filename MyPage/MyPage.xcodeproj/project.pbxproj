@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D37CDB52A018CE900DB0A36 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37CDB42A018CE900DB0A36 /* MyPage.swift */; };
+		1D37CDB72A0198C200DB0A36 /* TextLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37CDB62A0198C200DB0A36 /* TextLiteral.swift */; };
+		1D37CDB92A01998500DB0A36 /* MyPageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37CDB82A01998500DB0A36 /* MyPageTableViewController.swift */; };
+		1D37CDBB2A01FD6600DB0A36 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37CDBA2A01FD6600DB0A36 /* UIColor+.swift */; };
 		1D468B4929FCF17F00889A86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D468B4829FCF17F00889A86 /* AppDelegate.swift */; };
 		1D468B4B29FCF17F00889A86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D468B4A29FCF17F00889A86 /* SceneDelegate.swift */; };
 		1D468B4D29FCF17F00889A86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D468B4C29FCF17F00889A86 /* ViewController.swift */; };
@@ -18,7 +22,6 @@
 		1D468B7029FD2D8800889A86 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D468B6F29FD2D8800889A86 /* UIImage+.swift */; };
 		1D468B7229FD2DA400889A86 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D468B7129FD2DA400889A86 /* MyPageViewController.swift */; };
 		1D468B7429FD2DD000889A86 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D468B7329FD2DD000889A86 /* MyPageTableViewCell.swift */; };
-		1D468B7629FD2E1000889A86 /* MyPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D468B7529FD2E1000889A86 /* MyPageTableView.swift */; };
 		1D468B7829FD2E2A00889A86 /* MyPageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D468B7729FD2E2A00889A86 /* MyPageHeaderView.swift */; };
 		1D468B7A29FD2E3A00889A86 /* MyPageFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D468B7929FD2E3A00889A86 /* MyPageFooterView.swift */; };
 		1D468B7D29FD2F7100889A86 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1D468B7C29FD2F7100889A86 /* SnapKit */; };
@@ -26,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D37CDB42A018CE900DB0A36 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
+		1D37CDB62A0198C200DB0A36 /* TextLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLiteral.swift; sourceTree = "<group>"; };
+		1D37CDB82A01998500DB0A36 /* MyPageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewController.swift; sourceTree = "<group>"; };
+		1D37CDBA2A01FD6600DB0A36 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		1D468B4529FCF17F00889A86 /* MyPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D468B4829FCF17F00889A86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D468B4A29FCF17F00889A86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +46,6 @@
 		1D468B6F29FD2D8800889A86 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		1D468B7129FD2DA400889A86 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		1D468B7329FD2DD000889A86 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
-		1D468B7529FD2E1000889A86 /* MyPageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableView.swift; sourceTree = "<group>"; };
 		1D468B7729FD2E2A00889A86 /* MyPageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageHeaderView.swift; sourceTree = "<group>"; };
 		1D468B7929FD2E3A00889A86 /* MyPageFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +92,8 @@
 				1D468B5329FCF18000889A86 /* LaunchScreen.storyboard */,
 				1D468B5629FCF18000889A86 /* Info.plist */,
 				1D468B6F29FD2D8800889A86 /* UIImage+.swift */,
+				1D37CDBA2A01FD6600DB0A36 /* UIColor+.swift */,
+				1D37CDB62A0198C200DB0A36 /* TextLiteral.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -103,10 +111,11 @@
 			isa = PBXGroup;
 			children = (
 				1D468B7129FD2DA400889A86 /* MyPageViewController.swift */,
-				1D468B7329FD2DD000889A86 /* MyPageTableViewCell.swift */,
-				1D468B7529FD2E1000889A86 /* MyPageTableView.swift */,
 				1D468B7729FD2E2A00889A86 /* MyPageHeaderView.swift */,
+				1D468B7329FD2DD000889A86 /* MyPageTableViewCell.swift */,
 				1D468B7929FD2E3A00889A86 /* MyPageFooterView.swift */,
+				1D37CDB82A01998500DB0A36 /* MyPageTableViewController.swift */,
+				1D37CDB42A018CE900DB0A36 /* MyPage.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -191,12 +200,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D468B7A29FD2E3A00889A86 /* MyPageFooterView.swift in Sources */,
+				1D37CDBB2A01FD6600DB0A36 /* UIColor+.swift in Sources */,
+				1D37CDB52A018CE900DB0A36 /* MyPage.swift in Sources */,
+				1D37CDB72A0198C200DB0A36 /* TextLiteral.swift in Sources */,
 				1D468B6D29FD2D5400889A86 /* BaseViewController.swift in Sources */,
-				1D468B7629FD2E1000889A86 /* MyPageTableView.swift in Sources */,
 				1D468B4D29FCF17F00889A86 /* ViewController.swift in Sources */,
 				1D468B7429FD2DD000889A86 /* MyPageTableViewCell.swift in Sources */,
 				1D468B7829FD2E2A00889A86 /* MyPageHeaderView.swift in Sources */,
 				1D468B7229FD2DA400889A86 /* MyPageViewController.swift in Sources */,
+				1D37CDB92A01998500DB0A36 /* MyPageTableViewController.swift in Sources */,
 				1D468B4929FCF17F00889A86 /* AppDelegate.swift in Sources */,
 				1D468B7029FD2D8800889A86 /* UIImage+.swift in Sources */,
 				1D468B4B29FCF17F00889A86 /* SceneDelegate.swift in Sources */,

@@ -44,7 +44,7 @@ class BaseViewController : UIViewController {
     /// Attributes (속성) 설정 메서드
     func setStyle() {
 
-        view.backgroundColor = .blue
+        view.backgroundColor = .purple
     }
 
     /// Hierarchy, Constraints (계층 및 제약조건) 설정 메서드
