@@ -28,6 +28,7 @@ enum TextLiteral {
         "고객센터",
         "티빙 알아보기"
     ]
+//    static let
 }
 
 

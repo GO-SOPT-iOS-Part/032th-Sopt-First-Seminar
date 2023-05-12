@@ -12,7 +12,7 @@ import SnapKit
 class MyPageTableViewCell: UITableViewCell {
     
     static let identifier = "MypageTableViewCell"
-    static let cellId = "CellId"
+    //static let cellId = "CellId"
 
     
     private let label1 = UILabel().then {

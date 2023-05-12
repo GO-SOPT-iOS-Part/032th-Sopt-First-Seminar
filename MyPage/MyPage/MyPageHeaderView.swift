@@ -64,7 +64,7 @@ class MyPageHeaderView: UIView {
         $0.font = UIFont.boldSystemFont(ofSize: 15)
     }
     
-    private let longlable = UILabel().then {
+    private let longlabel = UILabel().then {
         $0.text = "이용권을 구매하고 TVN JTBC 등 인기 TV프로그램과 다양한 영화 콘텐츠를 자유롭게 시청하세요"
         $0.textColor = .white
         $0.font = UIFont.boldSystemFont(ofSize: 15)
@@ -106,7 +106,7 @@ class MyPageHeaderView: UIView {
         self.addSubview(uiview)
         
         //uiview2
-        uiview2.addSubview(longlable)
+        uiview2.addSubview(longlabel)
         uiview2.addSubview(enter2button)
         
         self.addSubview(uiview2)
@@ -190,13 +190,13 @@ class MyPageHeaderView: UIView {
             $0.trailing.equalToSuperview().inset(11)
         }
         // MARK: - View2(ticket, coin)
-        longlable.snp.makeConstraints {
+        longlabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(18)
             $0.leading.equalToSuperview().offset(11)
             $0.height.width.equalTo(23)
         }
         enter2button.snp.makeConstraints {
-            $0.centerY.equalTo(longlable) // 2줄 위아래로 레이아웃 잡아야하는 건 아닐텐데 ..
+            $0.centerY.equalTo(longlabel) // 2줄 위아래로 레이아웃 잡아야하는 건 아닐텐데 ..
             $0.trailing.equalToSuperview().inset(11)
         }
     }

@@ -15,7 +15,7 @@ class MyPageViewController : BaseViewController{
     private let myArray = [
         TextLiteral.tableViewFirstSectionTextArray,
         TextLiteral.tableViewSecoondSectionTextArray,
-    ]
+    ] // 2차원 배열로 만들고
     
     private let tableView = UITableView()
     //private let dummy = MyPage.dummy()
