@@ -186,7 +186,6 @@ final class TvingViewController: UIViewController {
 }
 
 // MARK: - Functions
-//extension 안에 에컴, 셋레이아웃, func, obj, obj
 extension TvingViewController {
     
     func style(){

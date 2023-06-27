@@ -100,6 +100,7 @@
 				1D37CDE42A06289C00DB0A36 /* SignUpService.swift */,
 				1D37CDE82A0628E600DB0A36 /* NetworkResult.swift */,
 				1D37CDEA2A0628FC00DB0A36 /* SignUpResponse.swift */,
+				1D37CDE62A0628B400DB0A36 /* ViewController.swift */,
 			);
 			path = seminar4;
 			sourceTree = "<group>";
@@ -126,7 +127,6 @@
 		1D8DAAAA2A0E4C7900674FAC /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				1D37CDE62A0628B400DB0A36 /* ViewController.swift */,
 				1D37CDF62A0D06C900DB0A36 /* WeatherTVC.swift */,
 				1D8DAAAB2A0E736900674FAC /* MoviePageViewController.swift */,
 				1D8DAAAD2A0E73FD00674FAC /* UITabelViewCell+.swift */,
