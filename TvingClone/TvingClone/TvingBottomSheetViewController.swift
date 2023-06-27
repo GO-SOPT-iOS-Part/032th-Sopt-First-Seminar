@@ -5,6 +5,9 @@
 //  Created by 고영민 on 2023/04/20.
 //
 import UIKit
+import Then
+import SnapKit
+
 
 class TvingUserNameBottomSheetViewController : UIViewController {
     var backgroundHiddenCompletionHandler : ((Bool) -> (Void))?
@@ -22,7 +25,6 @@ class TvingUserNameBottomSheetViewController : UIViewController {
         $0.text = "닉네임을 입력해주세요"
         $0.textColor = UIColor.color000000
         $0.font = .tvingBold(ofSize: 24)
-        $0.font = UIFont(name: "Arial", size: 10)
     }
     private let nickNameTextField = UITextField().then {
         $0.backgroundColor = UIColor.color9C9C9C

@@ -2,8 +2,8 @@
 //  TvingViewController.swift
 //  sopt_Seminar
 //
-//  Created by 고영민 on 2023/04/14.
-//
+//  Created by 고영민 on 2023/04/14
+
 
 import UIKit
 
@@ -84,12 +84,12 @@ final class TvingViewController: UIViewController {
     }
     
     private let passwordTextRemoveButton = UIButton().then {        // 글자 및 숫자 한 번에 지우기
-        $0.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+        $0.setImage(UIImage(named: "icon_x-circle@3x 2"), for: .normal)
         $0.tintColor = .color626262
     }
     
     private let passwordTextSecureToggleButton = UIButton().then {      //비밀번호 가리기
-        $0.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        $0.setImage(UIImage(named: "icon_eye-slash@3x 2"), for: .normal)
         $0.tintColor = .color626262
     }
     
@@ -299,7 +299,7 @@ private extension TvingViewController{
     }
 }
 
-// MARK: 순방향으로~! w.Delegate Pattern
+// MARK: 데이터전송 w.Delegate Pattern
 extension TvingViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = (textField.text ?? "") as NSString
