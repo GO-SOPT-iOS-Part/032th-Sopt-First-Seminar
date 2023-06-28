@@ -1,4 +1,4 @@
-# GodSamble(고영민)
+# GodSamble(고영민)
 ## SOPT 32기 iOS 과제 제출 레포
 ### 🔵1주차
 #### Xcode 사용, iOS기초, 화면전환, 데이터 전달 기초
